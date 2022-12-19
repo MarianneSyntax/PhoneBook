@@ -30,4 +30,24 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
+
+    fun deleteContact(contact: Contact) {
+        viewModelScope.launch{
+            try {
+                repo.deleteContact(contact)
+            } catch (e: Exception) {
+                Log.e("MainViewModel", "failed deleting contact: $e")
+            }
+        }
+    }
+
+    fun updateContact(contact: Contact) {
+        viewModelScope.launch {
+            try {
+                repo.updateContact(contact)
+            } catch (e: Exception) {
+                Log.e("MainViewModel", "failed updating contact: $e")
+            }
+        }
+    }
 }
