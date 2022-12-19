@@ -15,11 +15,11 @@ interface ContactDatabaseDao {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(contact: Contact)
+    fun insert(contact: Contact)
 
     @Update
-    suspend fun update(contact: Contact)
+    fun update(contact: Contact)
 
     @Delete
-    suspend fun delete(contact: Contact)
+    fun delete(contact: Contact)
 }
