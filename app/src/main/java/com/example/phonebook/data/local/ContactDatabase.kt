@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.phonebook.data.model.Contact
 
-class ContactDatabase {
+
 
 
     @Database(entities = [Contact::class], version = 1)
@@ -36,4 +36,3 @@ class ContactDatabase {
 
 
 
-}
