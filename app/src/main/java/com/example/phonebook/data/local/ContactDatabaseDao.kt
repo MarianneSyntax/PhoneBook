@@ -1,10 +1,7 @@
 package com.example.phonebook.data.local
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.phonebook.data.model.Contact
 
 @Dao
@@ -19,4 +16,10 @@ interface ContactDatabaseDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(contact: Contact)
+
+    @Update
+    suspend fun update(contact: Contact)
+
+    @Delete
+    suspend fun delete(contact: Contact)
 }
