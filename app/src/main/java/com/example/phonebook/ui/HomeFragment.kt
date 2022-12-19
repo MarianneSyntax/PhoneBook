@@ -30,12 +30,12 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //val contactAdapter = ContactAdapter()
-        //binding.recyclerView.adapter = contactAdapter
+        val contactAdapter = ContactAdapter()
+        binding.recyclerView.adapter = contactAdapter
 
         // contacts variable aus dem viewModel observen, bei Veränderungen contacts neu in den Adapter schreiben
         viewModel.contacts.observe(viewLifecycleOwner) {
-            //contactAdapter.submitList(it)
+            contactAdapter.submitList(it)
         }
 
         // Button fügt einen Listeneintrag hinzu
