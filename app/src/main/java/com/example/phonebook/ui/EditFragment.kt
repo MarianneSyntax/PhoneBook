@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.phonebook.R
 import com.example.phonebook.data.model.Contact
 import com.example.phonebook.databinding.FragmentEditBinding
@@ -41,11 +42,22 @@ class EditFragment: Fragment() {
         }
 
         binding.editSaveButton.setOnClickListener {
-            //todo
+            if (contact != null) {
+                contact!!.name = binding.editNameEdit.text.toString()
+                contact!!.number = binding.editNumberEdit.text.toString()
+
+                viewModel.updateContact(contact!!)
+            }
+            findNavController()
+                .navigateUp()
         }
 
         binding.editDeleteButton.setOnClickListener {
-            //todo
+            if (contact != null) {
+                viewModel.deleteContact(contact!!)
+            }
+            findNavController()
+                .navigateUp()
         }
     }
 
