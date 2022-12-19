@@ -40,7 +40,19 @@ class HomeFragment : Fragment() {
 
         // Button fügt einen Listeneintrag hinzu
         binding.btnAdd.setOnClickListener {
-           //todo
+            val name = binding.inName.text.toString()
+            val number = binding.inPhoneNumber.text.toString()
+
+            if (name != "" && number != "") {
+                val newContact = Contact(name = name, number = number)
+                viewModel.insertContact(newContact)
+
+                binding.inName.setText("")
+                binding.inPhoneNumber.setText("")
+            } else {
+                Toast.makeText(requireContext(), "please try again", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 }
