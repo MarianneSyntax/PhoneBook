@@ -1,9 +1,16 @@
 package com.example.phonebook.data.local
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Query
+import com.example.phonebook.data.model.Contact
 
 @Dao
 interface ContactDatabaseDao {
 
-    //TODO: Funktionen schreiben, mit denen auf den Inhalt der Contact-Tabelle in der ContactDatabse zugegriffen werden kann
+    //Funktionen, mit denen auf den Inhalt der Contact-Tabelle in der ContactDatabse zugegriffen werden kann
+
+    // getAll() führt die Query aus, die in der folgenden Zeile übergeben wird.
+    @Query("SELECT * FROM Contact")
+    fun getAll(): LiveData<List<Contact>>
 }
