@@ -7,5 +7,17 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.phonebook.ui.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.phonebook.ui.EditFragment"
+        android:label="EditFragment" >
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
 </navigation>

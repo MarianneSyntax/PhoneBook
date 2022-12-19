@@ -58,5 +58,16 @@
             app:layout_constraintStart_toStartOf="@+id/edit_number_edit"
             app:layout_constraintTop_toBottomOf="@+id/edit_number_edit" />
 
+        <Button
+            android:id="@+id/edit_delete_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="#833E3E"
+            android:text="delete"
+            app:layout_constraintEnd_toEndOf="@+id/edit_save_button"
+            app:layout_constraintStart_toStartOf="@+id/edit_save_button"
+            app:layout_constraintTop_toBottomOf="@+id/edit_save_button" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

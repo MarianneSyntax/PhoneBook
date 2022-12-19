@@ -5,9 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.phonebook.R
 import com.example.phonebook.data.model.Contact
+import com.example.phonebook.ui.HomeFragment
+import com.example.phonebook.ui.HomeFragmentDirections
 
 class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ItemViewHolder>() {
     private var dataset = listOf<Contact>()
@@ -37,7 +40,8 @@ class ContactAdapter: RecyclerView.Adapter<ContactAdapter.ItemViewHolder>() {
         holder.name.text = item.name
         holder.number.text = item.number
         holder.card.setOnClickListener {
-            //todo
+            holder.itemView.findNavController()
+                .navigate(HomeFragmentDirections.actionHomeFragmentToEditFragment(item.id))
         }
     }
 
