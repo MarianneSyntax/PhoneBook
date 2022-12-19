@@ -15,6 +15,14 @@ class Repository(private val database: ContactDatabase) {
         database.contactDatabaseDao.insert(contact)
     }
 
+    suspend fun deleteContact(contact: Contact) {
+        database.contactDatabaseDao.delete(contact)
+    }
+
+    suspend fun updateContact(contact: Contact) {
+        database.contactDatabaseDao.update(contact)
+    }
+
 
 }
 
