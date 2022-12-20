@@ -8,6 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.phonebook.data.Repository
 import com.example.phonebook.data.local.getDatabase
 import com.example.phonebook.data.model.Contact
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 // neue Syntax im ViewModel Kopf! Android application
@@ -22,7 +24,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val contacts = repo.getAllContacts()
 
     fun insertContact(contact: Contact) {
-        viewModelScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             try {
                 repo.insertContact(contact)
             } catch (e: Exception) {
