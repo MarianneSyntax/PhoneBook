@@ -28,7 +28,7 @@ class EditFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val id = requireArguments().getLong("contactId")
+        val id = requireArguments().getLong("id")
 
         var contact: Contact? = null
 
@@ -36,8 +36,8 @@ class EditFragment: Fragment() {
             contact = list.find { it.id == id }
 
             if (contact != null) {
-                binding.editNameEdit.setText(contact!!.name)
-                binding.editNumberEdit.setText(contact!!.number)
+                    binding.editNameEdit.setText(contact!!.name)
+                    binding.editNumberEdit.setText(contact!!.number)
             }
         }
 
