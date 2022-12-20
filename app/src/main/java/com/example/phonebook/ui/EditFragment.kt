@@ -47,6 +47,9 @@ class EditFragment: Fragment() {
                 contact!!.number = binding.editNumberEdit.text.toString()
 
                 viewModel.updateContact(contact!!)
+
+            } else {
+                throw Exception("problem bei edit save")
             }
             findNavController()
                 .navigateUp()
