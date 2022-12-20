@@ -16,10 +16,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     // datenbank aus unserem App Context holen
     private val database = getDatabase(application)
     // gleiche datenbank für Erstellung einer Instanz von Repository nutzen
-    private val repo = Repository(database)
+     val repo = Repository(database)
 
     // speichert das Ergebnis vom repo aufruf von getAll() aus dem DAO
-    val contacts = repo.contacts
+    val contacts = repo.getAllContacts()
 
     fun insertContact(contact: Contact) {
         viewModelScope.launch {
@@ -29,6 +29,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 Log.e("MainViewModel", "failed inserting contact: $e")
             }
         }
+
     }
 
     fun deleteContact(contact: Contact) {
