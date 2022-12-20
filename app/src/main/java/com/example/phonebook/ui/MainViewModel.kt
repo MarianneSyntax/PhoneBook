@@ -35,7 +35,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun deleteContact(contact: Contact) {
-        viewModelScope.launch{
+        CoroutineScope(Dispatchers.IO).launch{
             try {
                 repo.deleteContact(contact)
             } catch (e: Exception) {
@@ -45,7 +45,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun updateContact(contact: Contact) {
-        viewModelScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             try {
                 repo.updateContact(contact)
             } catch (e: Exception) {
